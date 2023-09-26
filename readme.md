@@ -81,3 +81,10 @@ if __name__ == "__main__":
     window.show()
     app.exec_()
 ```
+### 아래와 같이 버튼을 생성한다.
+#### ![image](https://github.com/Shin-jongwhan/python_pyqt5/assets/62974484/8f10b2d1-f628-49dc-91b0-91ba3a15c82a)
+### 버튼 1 -> 버튼 2 순서로 누르면 이렇게 실행된다.
+#### ![image](https://github.com/Shin-jongwhan/python_pyqt5/assets/62974484/cc20e1e6-74be-4515-80ef-2303dd41624e)
+#### ![image](https://github.com/Shin-jongwhan/python_pyqt5/assets/62974484/1fde8001-7b4e-4105-b272-a1a702ac7cb2)
+
+
