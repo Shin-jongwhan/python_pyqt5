@@ -15,7 +15,7 @@
 ### <br/><br/><br/>
 
 
-## 예제 1
+## example
 ### QtWidgets.QPushButton 으로 버튼을 생성할 수 있다.
 ### btn.clicked.connect 로 실행할 함수를 연결한다.
 ### btn4.clicked.connect(lambda : self.btn4_clicked("test")) 와 같이 parameter 를 주고 싶을 때는 lambda 를 이용한다.
