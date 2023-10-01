@@ -126,6 +126,7 @@ if __name__ == "__main__":
     window.setGeometry(200, 200, 800, 600)
     app.exec_() # 이벤트 루프 실행.
 ```
+#### ![image](https://github.com/Shin-jongwhan/python_pyqt5/assets/62974484/fb2e4449-aef5-4f71-8e45-c6b84550e59f)
 ### <br/><br/><br/>
 
 
