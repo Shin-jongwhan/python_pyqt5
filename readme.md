@@ -130,5 +130,33 @@ if __name__ == "__main__":
 ### <br/><br/><br/>
 
 
+## PyQt5.QtAxContainer.QAxWidget
+### QAxWidget 은 다른 프로그램을 연결하는 모듈이다.
+### 컨트롤러 연결 방법
+```
+self.ocx = QAxContainer.QAxWidget("A1574A0D-6BFA-4BD7-9020-DED88711818D")        # 키움 API 공식 가이드에 나와 있는 control 레지스트리 값
+
+```
+### <br/>
+
+### 함수 연결 방법
+```
+self.ocx.dynamicCall("SetInputValue(sID, sValue)", id, value)
+```
+### <br/>
+
+### 연결된 함수 초기화 방법
+```
+    def clear_conn_func(self) : 
+        try : 
+            self.ocx.disconnect()
+        except : 
+            print("Nothing to clear")
+```
+### <br/><br/><br/>
+
+
+
+
 
 
