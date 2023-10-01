@@ -163,6 +163,62 @@ self.ocx.dynamicCall("SetInputValue(sID, sValue)", id, value)
 #### ![image](https://github.com/Shin-jongwhan/python_pyqt5/assets/62974484/17b93e7c-8291-4a55-b879-81f11d5b3a73)
 ### <br/><br/><br/>
 
+## input 버튼 만들기
+- input : 값을 적는 공간
+- label : 값이 출력되는 곳
+- button : input 값을 받아 함수를 호출하는 버튼
+```
+    def create_input_button(self, func, input_x = 10, input_y = 10, input_w = 100, input_h = 30, 
+        label_text = "label", label_x = 10, label_y = 40, label_w = 100, label_h = 30, 
+        input_btn_text = "input_button", input_btn_x = 110, input_btn_y = 10, input_btn_w = 100, input_btn_h = 30) : 
+        # args
+        # input_x : int
+        # input_y : int
+        # input_w : int
+        # input_h : int
+        #
+        # label_text : str
+        # label_x : int
+        # label_y : int
+        # label_w (width) : int
+        # label_h (height) : int
+        #
+        # input_btn_text : str
+        # input_btn_x : int
+        # input_btn_y : int
+        # input_btn_w (width) : int
+        # input_btn_h (height) : int
+        input = QtWidgets.QLineEdit(self)
+        input.move(input_x, input_y)
+        input.resize(input_w, input_h)
+
+        text_label = QtWidgets.QLabel(self)
+        text_label.setText(label_text)
+        text_label.move(label_x, label_y)
+        text_label.resize(label_w, label_h)
+
+        button = QtWidgets.QPushButton(self)
+        button.setText(input_btn_text)
+        button.move(input_btn_x, input_btn_y)
+        button.resize(input_btn_w, input_btn_h)
+        button.clicked.connect(func)
+
+        return input, text_label, button
+```
+### 버튼 생성
+```
+self.input, self.text_label, self.button = self.create_input_button(lambda : self.get_stock_code_input(self.text_label), 
+            input_x = 475, 
+            label_text = '종목 검색(종목코드 또는 종목명)', label_x = 475, label_y = 40, label_w = 200, label_h = 30, 
+            input_btn_text = "종목 설정", input_btn_x = 575, input_btn_y = 10, input_btn_w = 100, input_btn_h = 30)
+```
+### <br/>
+
+### 다음과 같이 나온다.
+#### ![image](https://github.com/Shin-jongwhan/python_pyqt5/assets/62974484/fb4eff9e-ed5e-4927-9712-6a21797b8cec)
+### <br/><br/><br/>
+
+
 
 
 
