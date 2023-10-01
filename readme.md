@@ -137,15 +137,21 @@ if __name__ == "__main__":
 self.ocx = QAxContainer.QAxWidget("A1574A0D-6BFA-4BD7-9020-DED88711818D")        # 키움 API 공식 가이드에 나와 있는 control 레지스트리 값
 
 ```
+### 이렇게 다른 프로그램과 연결할 수 있다.
+#### ![image](https://github.com/Shin-jongwhan/python_pyqt5/assets/62974484/dc043045-e19c-479b-9707-eacff1b29549)
 ### <br/>
 
 ### 함수 연결 방법
 ```
 self.ocx.dynamicCall("SetInputValue(sID, sValue)", id, value)
 ```
+### connect 함수로 여러 함수를 연결하면 request (주식일봉차트 - rq) 를 누를 때마다 모든 connected 된 함수를 실행한다.
+### 같은 함수도 여러 번 등록하면 여러 번 실행된다.
+#### ![image](https://github.com/Shin-jongwhan/python_pyqt5/assets/62974484/f28baf38-b6ee-4774-ac05-11bdb5b880f1)
 ### <br/>
 
 ### 연결된 함수 초기화 방법
+### 함수가 여러 번 실행되지 않고 한 번만 실행되게 하려면 초기화를 진행해주어야 한다.
 ```
     def clear_conn_func(self) : 
         try : 
@@ -153,6 +159,8 @@ self.ocx.dynamicCall("SetInputValue(sID, sValue)", id, value)
         except : 
             print("Nothing to clear")
 ```
+### 클리어를 눌러주고 다시 함수 연결을 하면 재등록된 함수만 실행 된다.
+#### ![image](https://github.com/Shin-jongwhan/python_pyqt5/assets/62974484/17b93e7c-8291-4a55-b879-81f11d5b3a73)
 ### <br/><br/><br/>
 
 
