@@ -86,5 +86,48 @@ if __name__ == "__main__":
 ### 버튼 1 -> 버튼 2 순서로 누르면 이렇게 실행된다.
 #### ![image](https://github.com/Shin-jongwhan/python_pyqt5/assets/62974484/cc20e1e6-74be-4515-80ef-2303dd41624e)
 #### ![image](https://github.com/Shin-jongwhan/python_pyqt5/assets/62974484/1fde8001-7b4e-4105-b272-a1a702ac7cb2)
+### <br/><br/><br/>
+
+## 버튼을 편하게 만드는 방법
+### create_button() 함수와 같이 버튼을 생성하는 함수를 하나 만들어둔다.
+```
+import sys
+from PyQt5 import QtWidgets
+from PyQt5 import QtCore
+
+import kiwoom
+
+
+class Main(QtWidgets.QMainWindow):
+    def __init__(self):
+        super().__init__()
+        print("메인 클래스입니다.")
+        self.event_loop = QtCore.QEventLoop()
+        self.kiwoom = kiwoom.kiwoom()
+
+        self.create_button("키움 API 로그인", 10, 10, 100, 30, self.kiwoom.connect)
+        self.create_button("주식일봉차트 - rq", 10, 500, 200, 30, lambda : self.kiwoom.opt10081_rq("005930", "20230930", 0))
+        self.create_button("OnReceiveTrData 조회 등록", 10, 160, 200, 30, self.kiwoom.OnReceiveTrData_conn)
+        self.create_button("주식일봉차트 조회 등록", 10, 190, 200, 30, self.kiwoom.opt10081_conn)
+        self.create_button("데이터 조회 개수", 10, 220, 200, 30, self.kiwoom.get_data_index)
+
+        
+    def create_button(self, btn_value, move_x, move_y, size_w, size_h, func) : 
+        btn = QtWidgets.QPushButton(btn_value, self)
+        btn.move(move_x, move_y)
+        btn.resize(size_w, size_h)
+        btn.clicked.connect(func)
+
+
+if __name__ == "__main__":
+    app = QtWidgets.QApplication(sys.argv)
+    window = Main()
+    window.show()
+    window.setGeometry(200, 200, 800, 600)
+    app.exec_() # 이벤트 루프 실행.
+```
+### <br/><br/><br/>
+
+
 
 
