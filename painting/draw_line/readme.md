@@ -146,11 +146,14 @@ from PyQt5.QtWidgets import QWidget, QApplication
 from PyQt5.QtGui import QPainter, QPen, QColor, QBrush
 from PyQt5.QtCore import Qt
 
+import Qt_config
+
 
 class MyApp(QWidget):
 
     def __init__(self):
         super().__init__()
+        self.Qt_config = Qt_config.GUI()
         self.initUI()
 
     def initUI(self):
@@ -188,6 +191,8 @@ if __name__ == '__main__':
     ex = MyApp()
     sys.exit(app.exec_())
 ```
+#### ![image](https://github.com/Shin-jongwhan/python_pyqt5/assets/62974484/2de987be-f738-4ecf-8bc9-f43b9207e292)
+
 
 
 
