@@ -177,7 +177,7 @@ class MyApp(QWidget):
             if color not in self.Qt_config.dicQt_global_color.keys() : 
                 print("There's no color for {0}".format(color))
                 return
-            qp.setPen(QPen(self.Qt_config.dicQt_global_color[color], nLine_size))
+            qp.setPen(QPen(self.Qt_config.dicQt_global_color[color], nLine_size, self.Qt_config.dicLine_style[sLine_style]))
             qp.drawLine(x1, y1, x2, y2)
         elif type(color) == list : 
             if len(color) != 4 and all(list((map(lambda x : type(x) == int, color)))) :         # 길이가 4이고 모두 정수형인지 체크
@@ -195,7 +195,7 @@ class MyApp(QWidget):
             if color not in self.Qt_config.dicQt_global_color.keys() : 
                 print("There's no color for {0}".format(color))
                 return
-            qp.setPen(QPen(self.Qt_config.dicQt_global_color[color], nLine_size))
+            qp.setPen(QPen(self.Qt_config.dicQt_global_color[color], nLine_size, self.Qt_config.dicLine_style[sLine_style]))
             qp.drawLine(x1, y1, x2, y1)
             qp.drawLine(x1, y2, x2, y2)
             qp.drawLine(x1, y1, x1, y2)
