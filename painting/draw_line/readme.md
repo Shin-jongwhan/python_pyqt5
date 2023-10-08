@@ -165,6 +165,7 @@ class MyApp(QWidget):
         qp = QPainter()
         qp.begin(self)
         self.draw_line(qp, 30, 230, 200, 50, "blue", 10)
+        self.draw_line_box(qp, 20, 30, 100, 100, [180, 100, 160, 30], 50)
         qp.end()
 
 
@@ -182,8 +183,32 @@ class MyApp(QWidget):
             if len(color) != 4 and all(list((map(lambda x : type(x) == int, color)))) :         # 길이가 4이고 모두 정수형인지 체크
                 print("You should set color paramer to [red, green, blue, alpha] within ragne between 0 and 255.")
                 return
-            qp.setPen(QPen(QColor(color), 3, self.Qt_config.dicLine_style[sLine_style]))
+            qp.setPen(QPen(QColor(color[0], color[1], color[2], color[3]), 3, self.Qt_config.dicLine_style[sLine_style]))
             qp.drawLine(x1, y1, x2, y2)
+
+    
+    def draw_line_box(self, qp, x1, y1, x2, y2, color, nLine_size, sLine_style = "SolidLine") :
+        # color
+        ## string : if you give color to string, then you will use global color
+        ## list : if you give color to [red, green, blue, alpha], then you will use RGB code(0 ~ 255)
+        if type(color) == str : 
+            if color not in self.Qt_config.dicQt_global_color.keys() : 
+                print("There's no color for {0}".format(color))
+                return
+            qp.setPen(QPen(self.Qt_config.dicQt_global_color[color], nLine_size))
+            qp.drawLine(x1, y1, x2, y1)
+            qp.drawLine(x1, y2, x2, y2)
+            qp.drawLine(x1, y1, x1, y2)
+            qp.drawLine(x2, y1, x2, y2)
+        elif type(color) == list : 
+            if len(color) != 4 and all(list((map(lambda x : type(x) == int, color)))) :         # 길이가 4이고 모두 정수형인지 체크
+                print("You should set color paramer to [red, green, blue, alpha] within ragne between 0 and 255.")
+                return
+            qp.setPen(QPen(QColor(color[0], color[1], color[2], color[3]), 3, self.Qt_config.dicLine_style[sLine_style]))
+            qp.drawLine(x1, y1, x2, y1)
+            qp.drawLine(x1, y2, x2, y2)
+            qp.drawLine(x1, y1, x1, y2)
+            qp.drawLine(x2, y1, x2, y2)
 
 
 if __name__ == '__main__':
@@ -191,7 +216,10 @@ if __name__ == '__main__':
     ex = MyApp()
     sys.exit(app.exec_())
 ```
+### 라인을 그려본 것
 #### ![image](https://github.com/Shin-jongwhan/python_pyqt5/assets/62974484/2de987be-f738-4ecf-8bc9-f43b9207e292)
+### 박스를 생성해본 것
+#### ![image](https://github.com/Shin-jongwhan/python_pyqt5/assets/62974484/0dbe90f9-6605-4f41-91dd-8cb09a2e5167)
 
 
 
